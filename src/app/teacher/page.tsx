@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
 import SidebarComponent from '../../component/sidebar/teacherSidebar'
-import {BentoGridDemo} from '@/component/acertinity/WobbleCardTeacher'
+import BentoGridDemo from '../../component/acertinity/WobbleCard'
 
 const Home = () => {
   return (

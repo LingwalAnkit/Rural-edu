@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import SidebarComponent from "@/component/sidebar/teacherSidebar";
+import { RootState } from "../../redux/store";
+import SidebarComponent from "../../component/sidebar/teacherSidebar";
 import login from "../../../public/assets/login.png";
 import { Book, Presentation, Users, GraduationCap, FileText, Microscope } from "lucide-react";
 
@@ -74,16 +74,16 @@ const TeacherIntegratedDashboard: React.FC = () => {
     };
 
     return (
-        <div className="flex h-screen bg-gray-900">
+        <div className="flex h-screen bg-white">
             <SidebarComponent />
             <div className="flex-1 p-10 overflow-y-auto dark:bg-neutral-800">
                 {/* User Welcome Section */}
                 <div className="flex justify-between items-center mb-8">
-                    <h2 className="text-2xl font-semibold text-white">
+                    <h2 className="text-2xl font-semibold text-black">
                         Welcome back, <br /> 
                         <span className="text-4xl">{teacherName?.firstName || 'Teacher'} 👋</span>
                     </h2>
-                    <div className="flex items-center text-gray-300">
+                    <div className="flex items-center text-black">
                         <Image
                             src={login}
                             className="flex-shrink-0 rounded-full mr-4"
@@ -98,15 +98,15 @@ const TeacherIntegratedDashboard: React.FC = () => {
                 {/* Stats Section */}
                 <div className="grid grid-cols-3 gap-6 mb-8">
                     {[
-                        { icon: <Users className="w-8 h-8 text-blue-400" />, label: 'Total Students', value: 150 },
+                        { icon: <Users className="w-8 h-8 text-blue-900" />, label: 'Total Students', value: 150 },
                         { icon: <FileText className="w-8 h-8 text-green-400" />, label: 'Courses', value: 6 },
                         { icon: <Presentation className="w-8 h-8 text-purple-400" />, label: 'Active Classes', value: 4 },
                     ].map((stat, index) => (
-                        <div key={index} className="bg-gray-700 shadow-md rounded-lg p-6 flex items-center">
+                        <div key={index} className="bg-blue-200 shadow-md rounded-lg p-6 flex items-center">
                             <span className="mr-4">{stat.icon}</span>
                             <div>
-                                <p className="text-3xl font-bold text-white">{stat.value}</p>
-                                <p className="text-gray-300">{stat.label}</p>
+                                <p className="text-3xl font-bold text-blue-900">{stat.value}</p>
+                                <p className="text-blue-900">{stat.label}</p>
                             </div>
                         </div>
                     ))}
@@ -126,18 +126,18 @@ const TeacherIntegratedDashboard: React.FC = () => {
                                     flex items-center justify-center 
                                     px-4 py-3 
                                     bg-gradient-to-r 
-                                    from-gray-600 to-gray-700 
+                                    from-blue-500 to-blue-600 
                                     text-white 
                                     rounded-lg 
                                     shadow-md 
-                                    hover:from-gray-700 hover:to-gray-800 
+                                    hover:from-blue-700 hover:to-blue-800 
                                     transition-all 
                                     duration-300 
                                     transform 
                                     hover:scale-105
                                     focus:outline-none 
                                     focus:ring-2 
-                                    focus:ring-gray-500
+                                    focus:ring-blue-500
                                 "
                             >
                                 {classroom.icon}
@@ -148,9 +148,9 @@ const TeacherIntegratedDashboard: React.FC = () => {
                 </div>
 
                 {/* Assigned Classes Section */}
-                <div className="bg-gray-700 shadow-md rounded-lg mb-8">
-                    <div className="p-6 border-b border-gray-600">
-                        <h3 className="text-xl font-semibold text-white">Assigned Classes</h3>
+                <div className="bg-blue-300 shadow-md rounded-lg mb-8">
+                    <div className="p-6 border-b ">
+                        <h3 className="text-xl font-semibold text-blue-900">Assigned Classes</h3>
                     </div>
                     <div className="p-6">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -159,17 +159,16 @@ const TeacherIntegratedDashboard: React.FC = () => {
                                     key={index} 
                                     className="
                                         p-4 
-                                        border border-gray-600 
                                         rounded-lg 
                                         shadow-md 
-                                        bg-gray-800 
+                                        bg-blue-400 
                                         transition-all 
                                         duration-300 
                                         hover:scale-105
                                     "
                                 >
-                                    <h4 className="text-lg font-semibold text-white">{cls.name}</h4>
-                                    <div className="mt-2 text-gray-300">
+                                    <h4 className="text-lg font-semibold text-blue-900">{cls.name}</h4>
+                                    <div className="mt-2 text-blue-900">
                                         <p>Students: {cls.students}</p>
                                         <p>Progress: {cls.progress}</p>
                                     </div>
@@ -180,27 +179,26 @@ const TeacherIntegratedDashboard: React.FC = () => {
                 </div>
 
                 {/* Recommended Resources Section */}
-                <div className="bg-gray-700 shadow-md rounded-lg">
-                    <div className="p-6 border-b border-gray-600">
-                        <h3 className="text-3xl font-semibold text-white">Professional Development</h3>
+                <div className="bg-blue-300 shadow-md rounded-lg">
+                    <div className="p-6 border-b border-blue-600">
+                        <h3 className="text-3xl font-semibold text-blue-900">Professional Development</h3>
                     </div>
                     <div className="p-6 space-y-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {recommendedResources.map((resource, index) => (
                             <div 
                                 key={index} 
                                 className="
-                                    p-4 
-                                    border border-gray-600 
+                                    p-4  
                                     rounded-lg 
                                     shadow-md 
-                                    bg-gray-800 
+                                    bg-blue-400 
                                     transition-all 
                                     duration-300 
                                     hover:scale-105
                                 "
                             >
-                                <h4 className="text-lg font-semibold text-white">{resource.name}</h4>
-                                <p className="text-gray-300 mt-2">{resource.description}</p>
+                                <h4 className="text-lg font-semibold text-blue-900">{resource.name}</h4>
+                                <p className="text-blue-900 mt-2">{resource.description}</p>
                                 <div className="mt-4">
                                     <span className="text-blue-400 font-semibold">
                                         Completion: {resource.completionRate}

@@ -25,10 +25,10 @@ interface FeedbackForm {
 }
 
 const Logo = () => (
-    <div className="text-blue-900 dark:text-white text-2xl font-bold">Nav Shiksha</div>
+    <div className="text-blue-900 dark:text-white text-2xl font-bold">Edu Sparsh</div>
 );
 const LogoIcon = () => (
-    <div className="text-blue-900 dark:text-white text-2xl font-bold">N</div>
+    <div className="text-blue-900 dark:text-white text-2xl font-bold">ES</div>
 );
 const SidebarComponent = () => {
     const [open, setOpen] = useState<boolean>(false);
@@ -95,7 +95,7 @@ const SidebarComponent = () => {
         { label: "Doubt-Section", href: "/doubt", icon: <IconBook className="text-blue-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" /> },
         {
             label: "Community",
-            href: "https://nav-shiksha-chat-isox.vercel.app/",
+            href: "",
             icon: <IconUsersGroup className="text-blue-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
         },
         { label: "FeedBack And Complaints", href: "#", icon: <IconMessageCircle className="text-blue-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />, onClick: handleFeedbackClick },
@@ -108,13 +108,13 @@ const SidebarComponent = () => {
                 <SidebarBody className="justify-between gap-10">
                     <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                         {open ? <Logo /> : <LogoIcon />}
-                        <div className="mt-8 flex flex-col gap-2">
+                        <div className="mt-8 flex flex-col gap-4">
                             {links.map((link, idx) => (
                                 <SidebarLink
                                     key={idx}
                                     link={link}
                                     onClick={link.onClick}
-                                    className="hover:bg-blue-300 dark:hover:bg-neutral-700 text-blue-900 dark:text-white rounded-2xl"
+                                    className="hover:bg-blue-300 dark:hover:bg-neutral-700 text-blue-900 dark:text-white rounded-md p-1"
                                 />
                             ))}
                         </div>
