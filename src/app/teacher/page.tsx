@@ -5,7 +5,11 @@ import BentoGridDemo from '../../component/acertinity/WobbleCard'
 
 const Home = () => {
   return (
-    <SidebarComponent components={<div className='flex align-middle '><BentoGridDemo /></div>}/>
+    <SidebarComponent>
+      <div className='flex align-middle'>
+        <BentoGridDemo />
+      </div>
+    </SidebarComponent>
   )
 }
 

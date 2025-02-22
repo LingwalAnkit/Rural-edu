@@ -1,21 +1,20 @@
 "use client";
-import login from "../../../public/assets/login.png";
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "../../component/ui/sidebar";
 import {
   IconArrowLeft,
   IconBrandTabler,
-  IconSettings,
-  IconUserBolt,
-  IconPencil,
-  IconTrophy,
-  IconBook,
-  IconUsersGroup,
   IconMessageCircle,
+  IconPencil,
+  IconSettings,
+  IconUsersGroup
 } from "@tabler/icons-react";
 import Image from "next/image";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../redux/store";
+import { ChangeEvent, FormEvent, useState } from "react";
+import login from "../../../public/assets/login.png";
+import { Sidebar, SidebarBody, SidebarLink } from "../../component/ui/sidebar";
+
+interface SidebarComponentProps {
+  children?: React.ReactNode;
+}
 
 interface FeedbackForm {
   feedback: string;
@@ -32,7 +31,7 @@ const Logo = () => (
 const LogoIcon = () => (
   <div className="text-blue-900 dark:text-white text-2xl font-bold">ES</div>
 );
-const SidebarComponent = () => {
+const SidebarComponent = ({ children }: SidebarComponentProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const [isFeedbackFormOpen, setIsFeedbackFormOpen] = useState<boolean>(false);
   const [feedbackForm, setFeedbackForm] = useState<FeedbackForm>({
