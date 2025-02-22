@@ -1,19 +1,18 @@
-// NavbarDemo.tsx
 "use client";
-import React, { act, useState } from "react";
+import ChatBot from "../component/chatbot";
+import { RootState } from "@/redux/store";
+import Link from "next/link";
+import { useState } from "react";
+import { FaRobot } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import {
   HoveredLink,
   Menu,
   MenuItem,
   ProductItem,
 } from "../component/ui/navbar-menu";
-import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import { FaRobot } from "react-icons/fa";
 import { setLanguage } from "../redux/languageSlice";
-import ChatBot from "@/app/chatBot/page";
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavbarDemo({ onLoginClick }: { onLoginClick: any }) {
   return (

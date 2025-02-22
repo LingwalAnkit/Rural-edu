@@ -21,7 +21,7 @@ export default function BackgroundBeamsDemo() {
   > = {
     en: {
       title: "Edu Sparsh",
-      title2: "Rral Roots",
+      title2: "Rural Roots",
       title3: "Education For Everyone",
       subtitle: [
         "United Goals",

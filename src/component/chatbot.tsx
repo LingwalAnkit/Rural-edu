@@ -18,6 +18,12 @@ const ChatBot = ({ onClose }: ChatBotProps) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const handleClose = () => {
+    if (onClose && typeof onClose === 'function') {
+      onClose();
+    }
+  };
+
   const sendMessage = async () => {
     if (!query.trim()) return;
 
@@ -58,70 +64,71 @@ const ChatBot = ({ onClose }: ChatBotProps) => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50"> {/* Changed from left-4 to right-4 */}
+    <div className="fixed bottom-4 right-4 z-50">
       <div className="bg-white rounded-lg shadow-xl w-80 flex flex-col" style={{ height: '500px' }}>
         <div className="bg-blue-500 p-3 rounded-t-lg flex justify-between items-center">
           <h1 className="text-lg font-bold text-white">Edu Sparsh Chat Bot</h1>
           <button 
-            onClick={onClose}  // Use the onClose prop
+            onClick={handleClose}
             className="text-white hover:text-gray-200 transition-colors"
+            aria-label="Close chat"
           >
             <X size={20} />
           </button>
         </div>
 
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            {messages.map((message, index) => (
+        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={`flex ${
+                message.type === "user" ? "justify-end" : "justify-start"
+              }`}
+            >
               <div
-                key={index}
-                className={`flex ${
-                  message.type === "user" ? "justify-end" : "justify-start"
+                className={`max-w-[70%] rounded-lg p-3 ${
+                  message.type === "user"
+                    ? "bg-blue-500 text-white"
+                    : "bg-blue-300 text-gray-800"
                 }`}
               >
-                <div
-                  className={`max-w-[70%] rounded-lg p-3 ${
-                    message.type === "user"
-                      ? "bg-blue-500 text-white"
-                      : "bg-blue-300 text-gray-800"
-                  }`}
-                >
-                  {message.content}
-                </div>
+                {message.content}
               </div>
-            ))}
-            {loading && (
-              <div className="flex justify-start">
-                <div className="bg-blue-300 rounded-lg p-3 max-w-[70%]">
-                  <div className="flex space-x-2">
-                    <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce" />
-                    <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce delay-100" />
-                    <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce delay-200" />
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="border-t p-3 bg-white rounded-b-lg">
-            <div className="flex space-x-2">
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Type your message..."
-                className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
-              />
-              <button
-                onClick={sendMessage}
-                disabled={loading}
-                className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors disabled:bg-blue-300"
-              >
-                <Send size={16} />
-              </button>
             </div>
+          ))}
+          {loading && (
+            <div className="flex justify-start">
+              <div className="bg-blue-300 rounded-lg p-3 max-w-[70%]">
+                <div className="flex space-x-2">
+                  <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce" />
+                  <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce delay-100" />
+                  <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce delay-200" />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="border-t p-3 bg-white rounded-b-lg">
+          <div className="flex space-x-2">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Type your message..."
+              className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+            />
+            <button
+              onClick={sendMessage}
+              disabled={loading}
+              className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors disabled:bg-blue-300"
+            >
+              <Send size={16} />
+            </button>
           </div>
         </div>
+      </div>
     </div>
   );
 }

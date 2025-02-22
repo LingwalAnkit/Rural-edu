@@ -86,7 +86,7 @@ const SidebarComponent = () => {
       alert('An error occurred. Please try again.');
     }
   };
-  const communityUrl = process.env.COMMUNITY_URL
+  const communityUrl = "https://nav-shiksha-chat-isox.vercel.app/"
   communityUrl?.toString()
   const links = [
         { label: "Home", href: "/student-home", icon: <IconBrandTabler className="text-blue-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" /> },
@@ -95,7 +95,7 @@ const SidebarComponent = () => {
         { label: "Doubt-Section", href: "/doubt", icon: <IconBook className="text-blue-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" /> },
         {
             label: "Community",
-            href: "",
+            href: "https://nav-shiksha-chat-isox.vercel.app/",
             icon: <IconUsersGroup className="text-blue-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
         },
         { label: "FeedBack And Complaints", href: "#", icon: <IconMessageCircle className="text-blue-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />, onClick: handleFeedbackClick },

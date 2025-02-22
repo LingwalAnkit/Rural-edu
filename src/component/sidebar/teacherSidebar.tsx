@@ -112,7 +112,7 @@ const SidebarComponent = () => {
     },
     {
       label: "Community",
-      href: "",
+      href: "https://nav-shiksha-chat-isox.vercel.app/",
       icon: (
         <IconUsersGroup className="text-blue-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),

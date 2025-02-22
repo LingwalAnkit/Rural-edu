@@ -13,11 +13,6 @@ export default function FocusCardsDemo() {
             link: '/student-signup'
 
         },
-        {
-            title: "Parents Login",
-            src: "/assets/parent-login.jpeg",
-            link: '/parent-signup'
-        },
     ];
 
     return <FocusCards cards={cards} />;

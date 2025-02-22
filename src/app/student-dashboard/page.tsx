@@ -67,7 +67,7 @@ const IntegratedDashboard: React.FC = () => {
     // Classroom Joining Handler
     const handleJoinClass = (roomID: string) => {
         console.log("Redirecting to:", process.env.NEXT_PUBLIC_LOCAL);
-        window.location.replace(`${process.env.NEXT_PUBLIC_LOCAL}/?role=student&roomID=${roomID}&userID=${user?.firstName}`);
+        window.location.replace(`https://edtech-wb-fe.vercel.app/?role=student&roomID=${roomID}&userID=${user?.firstName}`);
     };
 
     return (
