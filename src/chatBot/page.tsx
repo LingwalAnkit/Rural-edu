@@ -13,7 +13,7 @@ interface ChatBotProps {
   onClose?: () => void;
 }
 
-export default function ChatBot({ onClose }: ChatBotProps) {
+const ChatBot = ({ onClose }: ChatBotProps) => {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
@@ -126,3 +126,5 @@ export default function ChatBot({ onClose }: ChatBotProps) {
     </div>
   );
 }
+
+export default ChatBot;
